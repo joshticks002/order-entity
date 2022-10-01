@@ -6,6 +6,4 @@ services:
     ports:
       - 4000:5005
     environment:
-      NODE_ENV: development
-      PORT: 5005
-      MONGO_URI: mongodb+srv://joshticks002:itsapparent4youtk@bankcluster.akkbjv8.mongodb.net/bakeryapp?retryWrites=true&w=majority
+      

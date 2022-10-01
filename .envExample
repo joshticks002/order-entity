@@ -1,0 +1,3 @@
+NODE_ENV = type
+PORT = 0000
+MONGO_URI = database connection url
