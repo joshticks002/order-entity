@@ -4,6 +4,6 @@ services:
   api:
     build: .
     ports:
-      - 4000:5005
+      - 4000:5000
     environment:
       

@@ -15,7 +15,7 @@ const ordersSchema = orders.Schema({
   },
   branch_id: {
     type: orders.Schema.Types.ObjectId,
-    ref: "Branch",
+    ref: "branch",
   },
   customer_id: {
     type: String,

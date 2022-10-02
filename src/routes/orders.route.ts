@@ -3,7 +3,8 @@ const router = express.Router();
 const {
   getOrderDetails,
   createOrder,
-  getOrders
+  getOrders,
+  seedOrders
 } = require("../controllers/orders.controller");
 const { validateOrder } = require("../middlewares/order_validation")
 

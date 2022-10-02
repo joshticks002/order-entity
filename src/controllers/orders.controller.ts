@@ -67,7 +67,7 @@ const seedOrders = asyncHandler(async (req: Request, res: Response) => {
     return new Date(date).toLocaleString('en-US', { timeZone: tzString });
   }
 
-  for (let i = 1; i <= 450; i++) {
+  for (let i = 481; i <= 550; i++) {
     const customer = uuidv1.v1().substr(0, 10).padStart("0", 8);
     const randomItem = item[Math.floor(Math.random() * 3)];
     const randomState = state[Math.floor(Math.random() * 4)];
@@ -75,7 +75,7 @@ const seedOrders = asyncHandler(async (req: Request, res: Response) => {
     const branch = await BranchModel.branchForSeeding(
       Math.ceil(Math.random() * 1000)
     );
-    const currentTime = convertTZ("2022/09/26 18:05:45 +0000", "Indian/Mahe");
+    const currentTime = convertTZ("2022/09/27 16:23:26 +0000", "Indian/Mahe");
 
     const order: Order = {
       item_type: randomItem.name,
@@ -102,5 +102,6 @@ const seedOrders = asyncHandler(async (req: Request, res: Response) => {
 module.exports = {
   getOrderDetails,
   createOrder,
-  getOrders
+  getOrders,
+  seedOrders
 };

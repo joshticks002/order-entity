@@ -5,9 +5,9 @@ const allBranch = async () => {
   return allBrch;
 };
 
-const singleBranch = async (id: number) => {
+const singleBranch = async (id: string) => {
   const singleBrch = await BranchService.findOne({ _id: id });
-  return singleBrch;
+  return singleBrch.place_id;
 };
 
 const createNewBranch = async (data: Branch) => {

@@ -1,17 +1,17 @@
 const OrderService = require("../models/orders.model");
 const BranchModel = require("./branch.service");
-import { Response } from "express"
+import { Response } from "express";
 
 const allOrders = async () => {
-  const orders = await OrderService.find();
+  const orders = await OrderService.find().populate({ path: "branch_id", select: "place_id"}).exec();
   return orders;
 };
 
 const orderById = async (id: number, res: Response) => {
   const existing = await OrderService.findOne({ order_id: id });
   if (!existing) {
-    res.status(404)
-    throw new Error("failed")
+    res.status(404);
+    throw new Error("failed");
   }
 
   const branch = await BranchModel.singleBranch(existing.branch_id);

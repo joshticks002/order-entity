@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const OrderService = require("../models/orders.model");
 const BranchModel = require("./branch.service");
 const allOrders = async () => {
-    const orders = await OrderService.find();
+    const orders = await OrderService.find().populate({ path: "branch_id", select: "place_id" }).exec();
     return orders;
 };
 const orderById = async (id, res) => {
