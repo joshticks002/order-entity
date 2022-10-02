@@ -24,7 +24,17 @@ const createOrder = asyncHandler(async (req: Request, res: Response) => {
 });
 
 const getOrderDetails = asyncHandler(async (req: Request, res: Response) => {
-  const allOrders = await OrderModel.orderById(req.params.orderid, res);
+  const order = await OrderModel.orderById(req.params.orderid, res);
+
+  res.status(200).json({
+    message: "Fetched",
+    data: order,
+    statusCode: 200,
+  });
+});
+
+const getOrders = asyncHandler(async (req: Request, res: Response) => {
+  const allOrders = await OrderModel.allOrders();
 
   res.status(200).json({
     message: "Fetched",
@@ -92,4 +102,5 @@ const seedOrders = asyncHandler(async (req: Request, res: Response) => {
 module.exports = {
   getOrderDetails,
   createOrder,
+  getOrders
 };
